@@ -11,11 +11,9 @@ import { ActivatedRoute} from "@angular/router";
 })
 export class SingleProductComponent implements OnInit{
   product: Product;
-  // selectedCard: any;
   constructor(
     private productsService: ProductsService,
     private route: ActivatedRoute,
-    // private dataService: DataService
   ) {}
 
   ngOnInit(): void {
