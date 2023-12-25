@@ -8,13 +8,15 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { ErrorComponent } from './components/error/error.component';
 import {NgOptimizedImage} from "@angular/common";
 import { ProductsListComponent } from './components/produts-list/products-list.component';
+import { SingleProductComponent } from './components/single-product/single-product.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductComponent,
     ErrorComponent,
-    ProductsListComponent
+    ProductsListComponent,
+    SingleProductComponent
   ],
   imports: [
     BrowserModule,

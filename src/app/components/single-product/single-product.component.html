@@ -1,0 +1,13 @@
+<div class="single-product-container" *ngIf="product">
+  <div class="card">
+    <div class="card__image-container">
+      <img [src]="product.image" [alt]="product.title" class="card__image" fill="">
+    </div>
+    <div class="card__content">
+      <p class="card__title">{{ product.title }}</p>
+      <p class="card__description">{{ product.description }}</p>
+      <p class="card__price">{{product.price | currency }}</p>
+    </div>
+  </div>
+  <button class="btn-back">Back</button>
+</div>

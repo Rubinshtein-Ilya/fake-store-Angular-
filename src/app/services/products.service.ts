@@ -14,10 +14,12 @@ export class ProductsService{
     private errorService: ErrorService
   ) {}
 
-  limit = 6;
+  readonly baseUrl:string = 'https://fakestoreapi.com/products';
+  limit:number = 6;
+  id:number = 1;
 
   getAllProducts():Observable<Product[]> {
-    return this.http.get<Product[]>('https://fakestoreapi.com/products', {
+    return this.http.get<Product[]>(`${this.baseUrl}`, {
       params: new HttpParams({
         fromString: `limit=${this.limit}`
       })
@@ -32,11 +34,18 @@ export class ProductsService{
 
     this.limit += 6;
 
-    return this.http.get<Product[]>('https://fakestoreapi.com/products', {
+    return this.http.get<Product[]>(`${this.baseUrl}`, {
       params: new HttpParams({
         fromString: `limit=${this.limit}`
       })
     }).pipe(
+      retry(2),
+      catchError(this.errorHandler.bind(this))
+    )
+  }
+
+  getSingleCard(id:number){
+    return this.http.get<Product>(`${this.baseUrl}/${id}`).pipe(
       retry(2),
       catchError(this.errorHandler.bind(this))
     )
