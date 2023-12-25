@@ -14,10 +14,27 @@ export class ProductsService{
     private errorService: ErrorService
   ) {}
 
+  limit = 6;
+
   getAllProducts():Observable<Product[]> {
     return this.http.get<Product[]>('https://fakestoreapi.com/products', {
       params: new HttpParams({
-        fromString: "limit=6"
+        fromString: `limit=${this.limit}`
+      })
+    }).pipe(
+      retry(2),
+      catchError(this.errorHandler.bind(this))
+    )
+  }
+
+
+  addNewCard():Observable<Product[]>{
+
+    this.limit += 6;
+
+    return this.http.get<Product[]>('https://fakestoreapi.com/products', {
+      params: new HttpParams({
+        fromString: `limit=${this.limit}`
       })
     }).pipe(
       retry(2),
@@ -31,3 +48,5 @@ export class ProductsService{
   }
 
 }
+
+

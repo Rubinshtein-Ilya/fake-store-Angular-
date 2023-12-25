@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Product} from "./models/product-model";
-import {products as data} from "./data/products-data";
 import {ProductsService} from "./services/products.service";
-import {Observable, tap} from "rxjs";
+
 
 @Component({
   selector: 'app-root',
@@ -10,16 +9,41 @@ import {Observable, tap} from "rxjs";
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit{
-  title = 'fake store';
-  loading: boolean = false;
-  products$: Observable<Product[]>
 
   constructor(private productsService: ProductsService) {}
 
+  title: string = 'fake store';
+  loading: boolean = false;
+  btnLoading: boolean = false;
+  products: Product[] = [];
+  isDisabled: boolean = false
+
+
   ngOnInit(){
     this.loading = true;
-    this.products$ = this.productsService.getAllProducts().pipe(
-      tap(() => this.loading = false)
-    )
+    this.productsService.getAllProducts().subscribe(products => {
+      this.products = products
+      this.loading = false
+    })
   }
+
+  trackByFn( card: any): any{
+    return card.id
+  }
+
+  addNew( ){
+    this.btnLoading = true
+   this.productsService.addNewCard().subscribe(products => {
+      let limit: number = this.productsService.limit
+      this.products = products
+      this.btnLoading = false
+      limit > this.products.length? this.isDisabled = true: this.isDisabled = false;
+    })
+  }
+
+
+
 }
+
+
+

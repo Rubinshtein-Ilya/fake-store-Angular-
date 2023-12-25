@@ -3,6 +3,7 @@
   margin: 0 auto;
   display: flex;
   flex-flow: column nowrap;
+  align-items: center;
 }
 
 .header{
@@ -41,3 +42,17 @@
   width: 100%;
 }
 
+.load-more-btn{
+  padding: 15px 25px;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-bottom: 50px;
+  width: 150px;
+}
+
+.regular {
+  background-color: yellow;
+}
+.disabled{
+  background-color: gray;
+}
