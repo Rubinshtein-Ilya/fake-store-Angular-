@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="products">
+    <p *ngIf="loading"  class="loading">Loading...</p>
+    <app-product
+      class="product-container"
+      *ngFor="let product of products; trackBy: trackByFn"
+      [product]="product"
+    >
+    </app-product>
+  </div>
+  <button
+    (click)="addNew()"
+    *ngIf="!loading"
+    [disabled]="isDisabled"
+    [ngClass]="{
+        'regular': !isDisabled,
+        'disabled': isDisabled
+      }"
+    class="load-more-btn">
+    {{btnLoading? "Loading...": "Load more"}}
+  </button>
+</div>

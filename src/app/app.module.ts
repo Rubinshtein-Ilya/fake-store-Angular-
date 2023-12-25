@@ -7,12 +7,14 @@ import { ProductComponent } from './components/product/product.component';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { ErrorComponent } from './components/error/error.component';
 import {NgOptimizedImage} from "@angular/common";
+import { ProductsListComponent } from './components/produts-list/products-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductComponent,
-    ErrorComponent
+    ErrorComponent,
+    ProductsListComponent
   ],
   imports: [
     BrowserModule,

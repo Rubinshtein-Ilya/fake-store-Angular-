@@ -1,30 +1,13 @@
-<div class="container">
-  <div class="header">
-    <h1 class="header__title">{{ title | titlecase }}</h1>
-  </div>
-  <div class="main">
-    <app-error class="error-container"></app-error>
-    <div class="products">
-      <p *ngIf="loading"  class="loading">Loading...</p>
-      <app-product
-        class="product-container"
-        *ngFor="let product of products; trackBy: trackByFn"
-        [product]="product"
-      >
-      </app-product>
-    </div>
-  </div>
-  <button
-    (click)="addNew()"
-    *ngIf="!loading"
-    [disabled]="isDisabled"
-    [ngClass]="{
-      'regular': !isDisabled,
-      'disabled': isDisabled
-    }"
-    class="load-more-btn">
-    {{btnLoading? "Loading...": "Load more"}}
-  </button>
+<div class="header">
+  <h1 class="header__title">{{ title | titlecase }}</h1>
 </div>
+
+<app-error class="error-container"></app-error>
+
+<div class="main">
+  <app-products-list></app-products-list>
+</div>
+
+
 
 
