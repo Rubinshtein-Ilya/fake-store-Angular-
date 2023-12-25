@@ -8,4 +8,5 @@
   <p class="product__price">
     Price: <span>{{ product.price | currency }}</span>
   </p>
+  <a [routerLink]="['/card', product.id]"  class="product__link">Link</a>
 </div>

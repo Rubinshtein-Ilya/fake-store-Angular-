@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule} from "@angular/router";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +10,7 @@ import { ErrorComponent } from './components/error/error.component';
 import {NgOptimizedImage} from "@angular/common";
 import { ProductsListComponent } from './components/produts-list/products-list.component';
 import { SingleProductComponent } from './components/single-product/single-product.component';
+import { PagesComponent } from './components/pages/pages.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +18,15 @@ import { SingleProductComponent } from './components/single-product/single-produ
     ProductComponent,
     ErrorComponent,
     ProductsListComponent,
-    SingleProductComponent
+    SingleProductComponent,
+    PagesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+    RouterModule.forRoot([])
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,5 @@
+
+
 <div class="header">
   <h1 class="header__title">{{ title | titlecase }}</h1>
 </div>
@@ -5,9 +7,10 @@
 <app-error class="error-container"></app-error>
 
 <div class="main">
-  <app-products-list></app-products-list>
+  <router-outlet></router-outlet>
+<!--  <app-products-list></app-products-list>-->
 
-  <app-single-product></app-single-product>
+<!--  <app-single-product></app-single-product>-->
 </div>
 
 
