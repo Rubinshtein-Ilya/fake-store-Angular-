@@ -1,0 +1,43 @@
+.container {
+  max-width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.header{
+  width: 100%;
+  padding: 50px 50px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+
+  &__title{
+    font-size: 30px;
+  }
+}
+
+.products {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 10%;
+  justify-content: center;
+}
+
+.product-container{
+  width: 25%;
+  transition: all 0.5s;
+  margin-bottom: 10%;
+  &:hover{
+    transform: translateY(-5px);
+  }
+}
+
+.error-container{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+

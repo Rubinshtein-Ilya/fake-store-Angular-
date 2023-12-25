@@ -1,0 +1,11 @@
+<div class="product">
+  <div class="product__image-container">
+    <img [src]="product.image" [alt]="product.title" class="product__image">
+  </div>
+  <h2 class="product__title">
+    {{ product.title }}
+  </h2>
+  <p class="product__price">
+    Price: <span>{{ product.price | currency }}</span>
+  </p>
+</div>
