@@ -1,0 +1,12 @@
+<form [formGroup]="registrationForm" (ngSubmit)="register()"  class="register-form">
+    <label class="register-form__label" for="username" >Username</label>
+    <input class="register-form__input" type="text" id="username" formControlName="username">
+
+    <label class="register-form__label"  for="email">Email</label>
+    <input class="register-form__input" type="email" id="email" formControlName="email">
+
+    <label class="register-form__label" for="password">Password</label>
+    <input class="register-form__input" type="text" id="password" formControlName="password">
+
+    <button type="submit" [disabled]="registrationForm.invalid"  class="register-form__btn"></button>
+</form>

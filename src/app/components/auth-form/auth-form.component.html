@@ -1,0 +1,11 @@
+<form [formGroup]="loginForm" (ngSubmit)="login()"  class="register-form">
+
+    <label class="auth-form__label" for="username" >Username</label>
+    <input class="auth-form__input" type="text" id="username" formControlName="username">
+
+    <label class="auth-form__label" for="password">Password</label>
+    <input class="auth-form__input" type="text" id="password" formControlName="password">
+
+    <button type="submit" [disabled]="loginForm.invalid"  class="auth-form__btn"></button>
+</form>
+

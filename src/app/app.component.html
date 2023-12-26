@@ -1,7 +1,17 @@
 
 
 <div class="header">
-  <h1 class="header__title">{{ title | titlecase }}</h1>
+  <div class="header__title-container">
+    <h1 class="header__title">{{ title | titlecase }}</h1>
+  </div>
+  <div class="nav">
+    <ul>
+      <li><a [routerLink]="['registration']" >SignUp</a></li>
+      /
+      <li><a [routerLink]="['login']">LogIn</a></li>
+    </ul>
+  </div>
+
 </div>
 
 <app-error class="error-container"></app-error>
