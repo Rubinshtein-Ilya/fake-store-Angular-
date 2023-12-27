@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+// import { AuthService } from '@auth0/auth0-angular';
 
 
 
@@ -10,6 +11,9 @@ import {Component} from '@angular/core';
 export class AppComponent {
 
   title: string = 'fake store';
+
+  constructor(/*public auth: AuthService*/) {
+  }
 }
 
 

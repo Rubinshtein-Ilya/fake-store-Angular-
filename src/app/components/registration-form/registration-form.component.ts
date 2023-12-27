@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {RegistrationRequestModel} from "../../models/form-request-model";
+import {FormService} from "../../services/form.service";
 
 @Component({
   selector: 'app-registration-form',
@@ -8,8 +10,8 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 })
 export class RegistrationFormComponent {
   registrationForm: FormGroup;
-
-  constructor(private fb: FormBuilder) {
+  isSuccess: boolean = false;
+  constructor(private fb: FormBuilder, private registrationService: FormService) {
     this.registrationForm = this.fb.group({
       username: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -18,8 +20,10 @@ export class RegistrationFormComponent {
   }
 
   register() {
-    const formData = this.registrationForm.value;
-    // console.log(formData)
+    const formData: RegistrationRequestModel = this.registrationForm.value;
+    this.registrationService.registerUser(formData).subscribe( user => {
+      this.isSuccess = true;
+    })
   }
 
 }

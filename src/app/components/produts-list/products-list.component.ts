@@ -13,7 +13,8 @@ export class ProductsListComponent implements OnInit{
   loading: boolean = false;
   btnLoading: boolean = false;
   products: Product[] = [];
-  isDisabled: boolean = false
+  isDisabled: boolean = false;
+  term: string = '';
 
   ngOnInit(): void {
     this.loading = true;

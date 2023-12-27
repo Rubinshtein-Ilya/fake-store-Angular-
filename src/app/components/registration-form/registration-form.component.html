@@ -8,5 +8,15 @@
     <label class="register-form__label" for="password">Password</label>
     <input class="register-form__input" type="text" id="password" formControlName="password">
 
-    <button type="submit" [disabled]="registrationForm.invalid"  class="register-form__btn"></button>
+    <button type="submit"
+            [disabled]="registrationForm.invalid"
+            [ngClass]="{
+              'register-form__btn': !isSuccess,
+              'register-form__btn-success': isSuccess
+            }"
+            >
+      {{!isSuccess? "Sign Up": "Success"}}
+    </button>
+  <a [routerLink]="['/']" class="back-link">Back</a>
 </form>
+

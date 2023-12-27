@@ -1,0 +1,29 @@
+.register-form{
+  width: 40%;
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 0 auto;
+  height: 90%;
+  justify-content: space-around;
+  gap: 20px;
+  border: 1px solid gray;
+  border-radius: 15px;
+  box-shadow: 3px 3px 10px gray;
+  padding: 20px 20px;
+  &__label{
+
+  }
+  &__input{
+    padding: 10px 10px;
+  }
+  &__btn{
+    width: 30%;
+    padding: 10px 20px;
+    background-color: yellow;
+  }
+  &__btn-success{
+    width: 30%;
+    padding: 10px 20px;
+    background-color: green;
+  }
+}

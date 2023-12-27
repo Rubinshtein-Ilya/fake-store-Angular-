@@ -20,7 +20,6 @@ export class SingleProductComponent implements OnInit{
     const cardId:number = Number(this.route.snapshot.paramMap.get('id'));
     this.productsService.getSingleCard(cardId).subscribe( product => {
       this.product = product
-      console.log(product)
     })
   }
 
