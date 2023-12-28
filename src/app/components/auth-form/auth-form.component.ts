@@ -20,7 +20,10 @@ export class AuthFormComponent {
   }
 
   login() {
-    const formData: AuthRequestModel  = this.loginForm.value;
+    const formData: AuthRequestModel = {
+      username: this.loginForm.value.username.trim(),
+      password: this.loginForm.value.password.trim()
+    };
     this.registrationService.loginUser(formData).subscribe( user => {
       this.isSuccess = true;
     })

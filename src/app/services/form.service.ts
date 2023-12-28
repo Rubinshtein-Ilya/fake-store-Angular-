@@ -8,7 +8,7 @@ import {ErrorService} from "./error.service";
   providedIn: 'root'
 })
 export class FormService {
-  readonly baseUrl:string = 'https://fakestoreapi.com/user';
+  readonly baseUrl:string = 'https://fakestoreapi.com/';
   readonly httpOptions = {
     headers: new HttpHeaders({
       'Content-Type' : 'application/json'
@@ -17,14 +17,14 @@ export class FormService {
   constructor(private http: HttpClient, private errorService: ErrorService) { }
 
   registerUser(formData: RegistrationRequestModel): Observable<RegistrationRequestModel> {
-    return this.http.post<RegistrationRequestModel>(`${this.baseUrl}/register`, formData, this.httpOptions).pipe(
+    return this.http.post<RegistrationRequestModel>(`${this.baseUrl}users`, formData, this.httpOptions).pipe(
       retry(2),
       catchError(this.errorHandler.bind(this))
     )
   }
 
   loginUser(formData: AuthRequestModel): Observable<AuthRequestModel> {
-    return this.http.post<AuthRequestModel>(`${this.baseUrl}/register`, formData, this.httpOptions).pipe(
+    return this.http.post<AuthRequestModel>(`${this.baseUrl}auth/login`, formData, this.httpOptions).pipe(
       retry(2),
       catchError(this.errorHandler.bind(this))
     )

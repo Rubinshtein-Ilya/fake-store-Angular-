@@ -20,7 +20,11 @@ export class RegistrationFormComponent {
   }
 
   register() {
-    const formData: RegistrationRequestModel = this.registrationForm.value;
+      const formData: RegistrationRequestModel = {
+          username: this.registrationForm.value.username.trim(),
+          email: this.registrationForm.value.email.trim(),
+          password: this.registrationForm.value.password.trim()
+      };
     this.registrationService.registerUser(formData).subscribe( user => {
       this.isSuccess = true;
     })
