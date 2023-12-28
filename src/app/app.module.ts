@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule} from "@angular/router";
-// import { AuthModule } from '@auth0/auth0-angular';
+import { AuthModule } from '@auth0/auth0-angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductComponent } from './components/product/product.component';
@@ -16,6 +16,7 @@ import { AuthFormComponent } from './components/auth-form/auth-form.component';
 import { FilterPipe } from './pipes/filter.pipe';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +27,7 @@ import { FilterPipe } from './pipes/filter.pipe';
     RegistrationFormComponent,
     AuthFormComponent,
     FilterPipe,
+
   ],
   imports: [
     BrowserModule,
@@ -35,13 +37,13 @@ import { FilterPipe } from './pipes/filter.pipe';
     RouterModule.forRoot([]),
     ReactiveFormsModule,
     FormsModule,
-    // AuthModule.forRoot({
-    //   domain: 'coretech.eu.auth0.com',
-    //   clientId: 'LSx01PqcFgXEgHR4Uzgsk5IBaFuuv4Oa',
-    //   authorizationParams: {
-    //     redirect_uri: window.location.origin
-    //   }
-    // }),
+    AuthModule.forRoot({
+      domain: 'coretech.eu.auth0.com',
+      clientId: 'LSx01PqcFgXEgHR4Uzgsk5IBaFuuv4Oa',
+      authorizationParams: {
+        redirect_uri: window.location.origin
+      }
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
